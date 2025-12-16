@@ -7,10 +7,7 @@ import TeacherDashboard from './pages/Dashboard/TeacherDashboard'
 import StudentDashboard from './pages/Dashboard/StudentDashboard'
 
 import ClassList from './pages/Class/ClassList'
-import Fees from './pages/Fees/Fees'
-import FeeList from './pages/Fees/FeesList'
-import FeeForm from './pages/Fees/FeeForm'
-
+import StudentList from './pages/Students/StudentList'
 
 function App() {
   return (
@@ -44,12 +41,11 @@ function App() {
                 <ClassList />
               </ProtectedRoute>
             } />
-            <Route path="/fees" element={
+            <Route path="/students" element={
               <ProtectedRoute>
-                <Fees />
+                <StudentList />
               </ProtectedRoute>
             } />
-          
           </Routes>
         </div>
       </Router>
