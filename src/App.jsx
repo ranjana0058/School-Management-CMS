@@ -5,7 +5,11 @@ import Login from './pages/Login'
 import AdminDashboard from './pages/Dashboard/AdminDashboard'
 import TeacherDashboard from './pages/Dashboard/TeacherDashboard'
 import StudentDashboard from './pages/Dashboard/StudentDashboard'
+
 import ClassList from './pages/Class/ClassList'
+import Fees from './pages/Fees/Fees'
+import FeeList from './pages/Fees/FeesList'
+import FeeForm from './pages/Fees/FeeForm'
 
 
 function App() {
@@ -13,7 +17,6 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-50">
-          
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={
@@ -36,11 +39,17 @@ function App() {
                 <StudentDashboard />
               </ProtectedRoute>
             } />
-            <Route path="/admin/classes" element={
-              <ProtectedRoute requiredRole="admin">
+            <Route path="/classes" element={
+              <ProtectedRoute>
                 <ClassList />
               </ProtectedRoute>
             } />
+            <Route path="/fees" element={
+              <ProtectedRoute>
+                <Fees />
+              </ProtectedRoute>
+            } />
+          
           </Routes>
         </div>
       </Router>

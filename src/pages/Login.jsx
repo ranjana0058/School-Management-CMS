@@ -1,29 +1,34 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { authService } from '../Services/authService'
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
   const { login } = useAuth()
   const navigate = useNavigate()
+
+  const demoUsers = {
+    'admin@school.com': { name: 'Admin User', role: 'admin', password: 'admin123' },
+    'teacher@school.com': { name: 'John Teacher', role: 'teacher', password: 'teacher123' },
+    'student@school.com': { name: 'Jane Student', role: 'student', password: 'student123' }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    setError('')
-    
-    try {
-      const { user, token } = await authService.login(credentials.email, credentials.password)
-      login(user, token)
-      navigate(`/${user.role}`)
-    } catch (err) {
-      setError(err.message)
-    } finally {
+
+    setTimeout(() => {
+      const user = demoUsers[credentials.email]
+      if (user && user.password === credentials.password) {
+        const userData = { name: user.name, role: user.role, email: credentials.email }
+        login(userData, 'demo-token')
+        navigate(`/${user.role}`)
+      } else {
+        alert('Invalid credentials')
+      }
       setLoading(false)
-    }
+    }, 1000)
   }
 
   return (
@@ -60,11 +65,7 @@ const Login = () => {
               />
             </div>
           </div>
-          {error && (
-            <div className="text-red-600 text-sm text-center">
-              {error}
-            </div>
-          )}
+
           <div>
             <button
               type="submit"
