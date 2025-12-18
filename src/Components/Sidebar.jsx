@@ -22,7 +22,17 @@ const Sidebar = () => {
     ],
     student: [
       { path: '/student', label: 'Dashboard', icon: '📊' },
-      { path: '/classes', label: 'My Classes', icon: '🏫' },
+      {path: '/Profile', label: 'Profile', icon: '👤'},
+      {path: '/Attendance', label: ' Attendance', icon: '✅'},
+      {path: '/fees/payments', label: 'Fees', icon: '💰'},
+      {path: '/Assignments', label: 'Assignments', icon: '🗂️'},
+      {path: '/Exams', label: 'Exams', icon: '🧾'},
+      {path: '/Marksheet', label: 'Marksheet', icon: '📝'},
+      {path: '/Result', label: 'Result', icon: '📊'},
+   
+      {path: '/Setting', label: 'Setting', icon: '⚙️'},
+    
+    
     ]
   }
 

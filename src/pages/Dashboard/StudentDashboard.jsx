@@ -1,8 +1,7 @@
-import Navbar from '../../Components/Navbar'
-import Sidebar from '../../Components/Sidebar'
+
 const StudentDashboard = () => {
       const stats = [
-        { title: 'My Classes', count: 6, icon: '🏫', color: 'bg-blue-500' },
+        { title: 'Classes', count: 6, icon: '🏫', color: 'bg-blue-500' },
      { title: 'Assignments', count: 12, icon: '📝', color: 'bg-green-500' },
      { title: 'Completed', count: 8, icon: '✅', color: 'bg-purple-500' },
       { title: 'Grade Average', count: 'A-', icon: '📊', color: 'bg-yellow-500' }
@@ -15,9 +14,8 @@ const StudentDashboard = () => {
 ]
  return (
  <div className="flex">
- <Sidebar />
+ 
  <div className="flex-1">
- <Navbar />
  <div className="p-6">
     <h1 className="text-2xl font-bold mb-6">Student Dashboard</h1>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -73,3 +71,6 @@ const StudentDashboard = () => {
     </div></div></div></div></div>
     )}
     export default StudentDashboard
+
+
+
